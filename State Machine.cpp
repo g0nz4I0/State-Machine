@@ -10,8 +10,8 @@
 using namespace std;
 using namespace chrono;
 
-typedef function<void()> Action;
-typedef function<bool()> Transition;
+using Action = std::function<void()> ;
+using Transition = std::function<bool()> ;
 
 class State { // stores an id for comparison purposes, a name for clarification and a vector of the actions it can perform
 public:
