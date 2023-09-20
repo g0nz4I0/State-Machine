@@ -83,9 +83,9 @@ int main() {
         cout<<"\nanother dummy action";
     };
     s1.add_action(a1);
-    Ss2.add_action(a2);
+    s2.add_action(a2);
     machine.add_element(p_s1, { p_s2,t  });
-    machine.add_element(p_s2, { p_s3,t  });
+    machine.add_element(p_s2, { p_s1,t  });
     while (true) {
         machine.update();
         this_thread::sleep_for(seconds(1));
