@@ -15,18 +15,18 @@ using Transition = std::function<bool()> ;
 
 class State { // stores an id for comparison purposes, a name for clarification and a vector of the actions it can perform
 public:
-    State(int _id, string _name) : id(_id), name(_name) {}
-    void add_action(Action& aux) { //adds an action to a State
-        actions.push_back(aux);
-    }
+    State(int _id, string _name) : 
+        id(_id), name(_name) {}
+    State() = default;
+
     void update() {
         for (auto& e : actions)
             e();
     }
-    State() {
-        name = "";
+    void add_action(Action& aux) { //adds an action to a State
+        actions.push_back(aux);
     }
-    int getId() {
+    int getId()const {
         return id;
     }
 
@@ -39,11 +39,10 @@ private:
 
 class StateMachine {   // Estado inicial, estado actual, mapa transiciones  
 public:
-    State* p_actual;
+   
     StateMachine(State* _inicial) {
         p_actual = _inicial;
     }
-    map<State*,map<State*, Transition>> mapa;
 
     void update() {
         check_for_transitions();
@@ -62,6 +61,9 @@ public:
         }
         return false;
     }
+    private:
+        map<State*,map<State*, Transition>> mapa;
+        State* p_actual;
 };
 
 int main() {
@@ -72,6 +74,7 @@ int main() {
     State* p_s2 = &s2;
 
     StateMachine machine(p_s1);
+    
     Transition t = [&i]() {
         return i % 2;
     };
