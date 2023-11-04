@@ -49,17 +49,17 @@ public:
         p_actual->update();
     }
 
-    void add_element(State* initial_state, pair <State*, Transition> pareja) {
-        mapa[initial_state][pareja.first] = pareja.second;
+    void add_element(State* initial_state, pair <State*, Transition> transition_to_state) {
+        mapa[initial_state][transition_to_state.first] = transition_to_state.second;
     }
-    bool check_for_transitions() { // Transicionar Devuelve True si hay que transicionar    
-        for (const auto& e : mapa[p_actual]) {
-            if (e.second()) {
-                p_actual = e.first;
-                return true;
+    void check_for_transitions() {   
+        for (const auto& transition_to_state : mapa[p_actual]) {
+            if (transition_to_state.second()) { // transition_to_state.second() is a function that returns a bool if you need to change states
+                p_actual = transition_to_state.first; //p_actual now points to the target state of the transition that returned true
+                break;
             }
         }
-        return false;
+      return;
     }
     private:
         map<State*,map<State*, Transition>> mapa;
