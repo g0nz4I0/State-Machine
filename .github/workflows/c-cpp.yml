@@ -14,9 +14,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Set env
+      run:  mkdir /opt/lib
     - name: configure
-      run: mkdir ./build
-    - run: cd ./build && cmake ..
-    - run: echo "calling make"
-    - name: make 
-      run: make -C ./build
+      run: mv -r . /opt/lib
+    - run: |
+        ls /opt/lib
