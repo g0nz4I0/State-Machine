@@ -26,4 +26,4 @@ jobs:
     - run: mkdir ./build 
     - name: cmake
       run: cmake -B ./build
-    - run: make -C :build -j 12
+    - run: make -C ./build -j 12
