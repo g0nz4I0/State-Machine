@@ -15,7 +15,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Set env
-      run:  mkdir /opt/lib && ls /opt/lib
+      run:  mkdir /opt/lib
+    - run: |
+        ls /opt/lib
     - name: configure
       run: mv ../* /opt/lib
     - run: |
