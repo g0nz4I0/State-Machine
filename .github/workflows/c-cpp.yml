@@ -21,7 +21,7 @@ jobs:
     - run: | 
           ls .
     - name: make
-      run: make
+      run: make all
     - name: make check
       run: make check
     - name: make distcheck
