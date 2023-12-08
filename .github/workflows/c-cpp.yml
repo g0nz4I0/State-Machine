@@ -14,7 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: configure
-      run: ./configure
+      run: mkdir ./build
+    - run: cd ./build && cmake ..
     - run: echo "calling make"
     - name: make
       run: make
