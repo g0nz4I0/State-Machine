@@ -15,13 +15,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Set env
-      run:  mkdir /opt/lib
-    - run: |
-        ls /opt/lib
+
     - name: configure
-      run: cp -r ../* /opt/lib
+      run: cp -r ../* /opt/
     - run: ls
-      working-directory: /opt/lib/State-Machine
+      working-directory: /opt/State-Machine
 
     - run: mkdir ./build 
     - name: cmake
