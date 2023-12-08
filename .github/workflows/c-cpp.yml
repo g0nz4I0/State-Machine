@@ -17,6 +17,6 @@ jobs:
     - name: Set env
       run:  mkdir /opt/lib
     - name: configure
-      run: mv -r . /opt/lib
+      run: mv . /opt/lib
     - run: |
         ls /opt/lib
