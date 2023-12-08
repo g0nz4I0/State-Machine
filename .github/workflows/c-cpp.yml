@@ -19,6 +19,6 @@ jobs:
     - run: |
         ls /opt/lib
     - name: configure
-      run: mv ../* /opt/lib
+      run: cp ../* /opt/lib
     - run: |
         ls /opt/lib
