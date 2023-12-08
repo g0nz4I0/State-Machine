@@ -20,9 +20,9 @@ jobs:
         ls /opt/lib
     - name: configure
       run: cp -r ../* /opt/lib
-    
-    - working-directory: /opt/lib/State-Machine
     - run: ls
+      working-directory: /opt/lib/State-Machine
+
     - run: mkdir ./build 
     - name: cmake
       run: cmake -B ./build
